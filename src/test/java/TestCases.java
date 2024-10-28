@@ -1,4 +1,8 @@
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -33,7 +37,9 @@ public class TestCases {
 
 
     @Test(priority = 1,dataProvider ="login_data",dataProviderClass = DataProviders.class)
-
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("check ability of user to log in")
+    @Link(name = "LoginPage", url = "https://swinji.azurewebsites.net/account/login")
     public void loginTest(String email,String password){
 
         loginPage.login(email,password);
